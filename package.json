@@ -1,6 +1,6 @@
 {
   "name": "simpleimageupload",
-  "version": "0.1.1",
+  "version": "0.1.1-readme2",
   "description": "Easy & simple file uploader component for HTML5 ",
   "main": "app.js",
   "scripts": {
@@ -21,5 +21,17 @@
   "bugs": {
     "url": "https://github.com/elporfirio/simpleImageUpload/issues"
   },
-  "homepage": "https://github.com/elporfirio/simpleImageUpload#readme"
+  "homepage": "https://github.com/elporfirio/simpleImageUpload#readme",
+  "dependencies": {
+    "angular": "^1.6.4",
+    "jquery": "^3.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0",
+    "eslint-config-standard": "^10.2.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-node": "^5.0.0",
+    "eslint-plugin-promise": "^3.5.0",
+    "eslint-plugin-standard": "^3.0.1"
+  }
 }

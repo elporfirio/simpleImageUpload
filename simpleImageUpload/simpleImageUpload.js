@@ -1,94 +1,91 @@
+/* eslint-disable no-trailing-spaces */
 /**
  * Created by elporfirio on 07/04/2016.
  */
 
-angular.module('UtilFirio', [])
-    .controller('simpleImageUploadCtrl', ['$scope', simpleImageUploadCtrlFn])
-    .directive('simpleImageUpload', [simpleImageUploadFn]);
+angular.module('simpleUtil', [])
+  .controller('simpleImageUploadCtrl', ['$scope', simpleImageUploadCtrlFn])
+  .directive('simpleImageUpload', [simpleImageUploadFn])
 
-function simpleImageUploadCtrlFn($scope) {
-    'use strict';
-    var self = this;
+function simpleImageUploadCtrlFn ($scope) {
+  var vm = this
+  /** Binding Properties:
+   *  vm.imageFile
+   */
 
-    console.log("funcionando");
-    //self.imagen = [];
+  vm.getImagesFromEvent = function (event) {
+    var files = event.originalEvent.target.files || event.originalEvent.dataTransfer.files
+    var count = 1
+    var image = null
+    angular.forEach(files, function (file) {
+      if (file.type.match('image.*') !== null && count === 1) {
+        image = file
+        count += 1
+      } else if (count > 1) {
+        console.warn('This directive will only process 1 image every time')
+      }
+    })
+    displayImage(image)
+  }
 
-    self.manipularArchivos = function (event, element) {
-        /* Sin JQUERY */
-        //var files = e.target.files || e.dataTransfer.files;
-        var files = event.originalEvent.target.files || event.originalEvent.dataTransfer.files;
-        var contador = 1;
-        angular.forEach(files, function (archivo, index) {
-            if (archivo.type.match('image.*') !== null && contador === 1) {
-                mostrarImagen(archivo);
-                contador += 1;
-            }
-        });
-    };
+  var displayImage = function (imagen) {
+    var lector = generateReader(imagen)
+    lector.readAsDataURL(imagen)
+  }
 
-    var mostrarImagen = function (imagen) {
-        var lector = generarReader(imagen);
-        lector.readAsDataURL(imagen);
-    };
+  var generateReader = function (img) {
+    var reader = new FileReader()
+    reader.onload = (function (file) {
+      return function (e) {
+        vm.imageFile = {
+          source: e.target.result,
+          name: file.name
+        }
+        $scope.$apply()
+      }
+    })(img)
 
-    var generarReader = function (img) {
-        var reader = new FileReader();
-        reader.onload = (function (archivo) {
-            return function (evento) {
-                self.imagen = {
-                    source: evento.target.result,
-                    name: archivo.name
-                };
-                $scope.$apply();
-            }
-        })(img);
-
-        return reader;
-    };
+    return reader
+  }
 }
 
-function simpleImageUploadFn() {
-    'use strict';
+function simpleImageUploadFn () {
+  function linkFn (scope, element, attrs, controller, ngModel) {
+    var input = element.find('input')
+    var $div = element.find('div')
 
-    function linkFn(scope, element, attrs, controller, ngModel) {
-        debugger;
-        var input = element.find('input');
-        input.on('change', function (e) {
-            controller.manipularArchivos(e);
-        });
+    input.on('change', function (e) {
+      controller.getImagesFromEvent(e)
+    })
 
-        element.find('div').on('drag dragstart dragend dragover dragenter dragleave drop', function (e) {
-            e.preventDefault();
-            e.stopPropagation();
-            console.log('clickeqndo');
-        })
-            .on('dragover dragenter', function () {
-                element.find('div').addClass('is-dragover');
-            })
-            .on('dragleave dragend drop', function () {
-                element.find('div').removeClass('is-dragover');
-            })
-            .on('drop', function (e) {
-                controller.manipularArchivos(e, element.find('div'));
-            })
-            .on('click', function (e) {
-                input.trigger('click');
-            });
-    }
+    $div.on('drag dragstart dragend dragover dragenter dragleave drop', function (e) {
+      e.preventDefault()
+      e.stopPropagation()
+    })
+      .on('dragover dragenter', function () {
+        $div.addClass('is-dragover')
+      })
+      .on('dragleave dragend drop', function () {
+        $div.removeClass('is-dragover')
+      })
+      .on('drop', function (e) {
+        controller.getImagesFromEvent(e)
+      })
+      .on('click', function () {
+        input.trigger('click')
+      })
+  }
 
-    return {
-        restrict: 'E',
-        replace: false,
-        template: '' +
-        '<input type="file" style="display:none;"> ' +
-        '<div class="imgUpload"></div>',
-        scope: {},
-        bindToController: {
-            imagen: '=',
-            options: '='
-        },
-        controller: 'simpleImageUploadCtrl',
-        controllerAs: 'ImgUploadCtrl',
-        link: linkFn
-    };
+  return {
+    restrict: 'E',
+    replace: false,
+    template: '<input type="file" style="display:none;"><div class="imgUpload"></div>',
+    scope: {},
+    bindToController: {
+      imageFile: '=',
+      options: '='
+    },
+    controller: 'simpleImageUploadCtrl',
+    link: linkFn
+  }
 }

@@ -30,7 +30,7 @@
 </head>
 <body ng-controller="Main as main">
 <simple-image-upload
-		imagen="main.archivos"
+		image-file="main.archivos"
 		ng-style="{'background-image':'url(' + main.archivos.source + ')'}" style="background-size: cover;">
 </simple-image-upload>
 
@@ -40,8 +40,8 @@
 <h3>Background Div</h3>
 <div ng-style="{'background-image':'url(' + main.archivos.source + ')'}" style="background-size: cover; width: 200px; height: 200px"></div>
 
-<script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
+<script src="node_modules/jquery/dist/jquery.min.js"></script>
+<script src="node_modules/angular/angular.min.js"></script>
 <script src="simpleImageUpload/simpleImageUpload.js"></script>
 <script src="app.js"></script>
 </body>
