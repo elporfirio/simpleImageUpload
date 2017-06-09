@@ -1,0 +1,25 @@
+{
+  "name": "simpleimageupload",
+  "version": "0.1.1",
+  "description": "Easy & simple file uploader component for HTML5 ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elporfirio/simpleImageUpload.git"
+  },
+  "keywords": [
+    "angularjs",
+    "component",
+    "image",
+    "upload"
+  ],
+  "author": "Porfirio Chávez <elporfirio@gmail.com> (http://elporfirio.com/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elporfirio/simpleImageUpload/issues"
+  },
+  "homepage": "https://github.com/elporfirio/simpleImageUpload#readme"
+}

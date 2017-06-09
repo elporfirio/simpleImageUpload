@@ -2,7 +2,7 @@
 <html lang="en" ng-app="pruebas">
 <head>
 	<meta charset="UTF-8">
-	<title>Title</title>
+	<title>Simple Image Upload Demo</title>
 	<style>
 		div.imgUpload.is-dragover {
 			background-color: greenyellow;
@@ -29,11 +29,12 @@
 	</style>
 </head>
 <body ng-controller="Main as main">
-<simple-image-uploader imagen="main.archivos"
-											 ng-style="{'background-image':'url(' + main.archivos.source + ')'}" style="background-size: cover;">
-</simple-image-uploader>
+<simple-image-upload
+		imagen="main.archivos"
+		ng-style="{'background-image':'url(' + main.archivos.source + ')'}" style="background-size: cover;">
+</simple-image-upload>
 
-<h3>Image</h3>
+<h3>Image {{ 1 + 2}}</h3>
 <img ng-src="{{main.archivos.source}}" style="width: 200px; height: 200px">
 
 <h3>Background Div</h3>
