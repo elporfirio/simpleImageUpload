@@ -51,7 +51,7 @@ Insert directive on template / html file
 
 ## Demo
 
-See demo on [http://elporfirio.github.io/simpleImageUpload](http://elporfirio.github.io/simpleImageUpload).
+See demo on [http://elporfirio.github.io/simpleImageUpload/](http://elporfirio.github.io/simpleImageUpload/).
 
 # Change Log
 All notable changes to this project will be documented in this file.
