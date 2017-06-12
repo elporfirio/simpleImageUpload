@@ -1,4 +1,3 @@
-/* eslint-disable no-trailing-spaces */
 /**
  * Created by elporfirio on 07/04/2016.
  */
@@ -39,6 +38,7 @@ function simpleImageUploadCtrlFn ($scope) {
       return function (e) {
         vm.imageFile = {
           source: e.target.result,
+          file: file,
           name: file.name
         }
         $scope.$apply()
@@ -79,11 +79,10 @@ function simpleImageUploadFn () {
   return {
     restrict: 'E',
     replace: false,
-    template: '<input type="file" style="display:none;"><div class="imgUpload"></div>',
+    template: '<input type="file" style="display:none;"><div class="simpleImageUpload"></div>',
     scope: {},
     bindToController: {
-      imageFile: '=',
-      options: '='
+      imageFile: '='
     },
     controller: 'simpleImageUploadCtrl',
     link: linkFn

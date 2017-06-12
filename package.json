@@ -1,6 +1,6 @@
 {
   "name": "simpleimageupload",
-  "version": "0.1.1-readme2",
+  "version": "0.1.2",
   "description": "Easy & simple file uploader component for HTML5 ",
   "main": "app.js",
   "scripts": {
