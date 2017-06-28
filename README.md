@@ -72,5 +72,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Nothing to inform here
 
 [Unreleased]: https://github.com/elporfirio/simpleImageUpload
-[0.1.1]: https://github.com/elporfirio/simpleImageUpload/releases/tag/v.0.1.1
-[0.1.2]: https://github.com/elporfirio/simpleImageUpload/releases/tag/v.0.1.2
+[0.1.1]: https://github.com/elporfirio/simpleImageUpload/releases/tag/v0.1.1
+[0.1.2]: https://github.com/elporfirio/simpleImageUpload/releases/tag/v0.1.2
