@@ -1,1 +1,91 @@
-function simpleImageUploadCtrlFn(e){var n=this;n.getImagesFromEvent=function(e){var n=e.originalEvent.target.files||e.originalEvent.dataTransfer.files,r=1,t=null;angular.forEach(n,function(e){null!==e.type.match("image.*")&&1===r?(t=e,r+=1):r>1&&console.warn("This directive will only process 1 image every time")}),a(t)};var a=function(e){r(e).readAsDataURL(e)},r=function(a){var r=new FileReader;return r.onload=function(a){return function(r){n.imageFile={source:r.target.result,file:a,name:a.name},e.$apply()}}(a),r}}function simpleImageUploadFn(){return{restrict:"E",replace:!1,template:'<input type="file" style="display:none;"><div class="simpleImageUpload"></div>',scope:{},bindToController:{imageFile:"="},controller:"simpleImageUploadCtrl",link:function(e,n,a,r,t){var i=n.find("input"),o=n.find("div");i.on("change",function(e){r.getImagesFromEvent(e)}),o.on("drag dragstart dragend dragover dragenter dragleave drop",function(e){e.preventDefault(),e.stopPropagation()}).on("dragover dragenter",function(){o.addClass("is-dragover")}).on("dragleave dragend drop",function(){o.removeClass("is-dragover")}).on("drop",function(e){r.getImagesFromEvent(e)}).on("click",function(){i.trigger("click")})}}}function simpleImageUploadCtrlFn(e){var n=this;n.getImagesFromEvent=function(e){var n=e.originalEvent.target.files||e.originalEvent.dataTransfer.files,r=1,t=null;angular.forEach(n,function(e){null!==e.type.match("image.*")&&1===r?(t=e,r+=1):r>1&&console.warn("This directive will only process 1 image every time")}),a(t)};var a=function(e){r(e).readAsDataURL(e)},r=function(a){var r=new FileReader;return r.onload=function(a){return function(r){n.imageFile={source:r.target.result,file:a,name:a.name},e.$apply()}}(a),r}}function simpleImageUploadFn(){return{restrict:"E",replace:!1,template:'<input type="file" style="display:none;"><div class="simpleImageUpload"></div>',scope:{},bindToController:{imageFile:"="},controller:"simpleImageUploadCtrl",link:function(e,n,a,r,t){var i=n.find("input"),o=n.find("div");i.on("change",function(e){r.getImagesFromEvent(e)}),o.on("drag dragstart dragend dragover dragenter dragleave drop",function(e){e.preventDefault(),e.stopPropagation()}).on("dragover dragenter",function(){o.addClass("is-dragover")}).on("dragleave dragend drop",function(){o.removeClass("is-dragover")}).on("drop",function(e){r.getImagesFromEvent(e)}).on("click",function(){i.trigger("click")})}}}function simpleImageUploadCtrlFn(e){var n=this;n.getImagesFromEvent=function(e){var n=e.originalEvent.target.files||e.originalEvent.dataTransfer.files,r=1,t=null;angular.forEach(n,function(e){null!==e.type.match("image.*")&&1===r?(t=e,r+=1):r>1&&console.warn("This directive will only process 1 image every time")}),a(t)};var a=function(e){r(e).readAsDataURL(e)},r=function(a){var r=new FileReader;return r.onload=function(a){return function(r){n.imageFile={source:r.target.result,file:a,name:a.name},e.$apply()}}(a),r}}function simpleImageUploadFn(){return{restrict:"E",replace:!1,template:'<input type="file" style="display:none;"><div class="simpleImageUpload"></div>',scope:{},bindToController:{imageFile:"="},controller:"simpleImageUploadCtrl",link:function(e,n,a,r,t){var i=n.find("input"),o=n.find("div");i.on("change",function(e){r.getImagesFromEvent(e)}),o.on("drag dragstart dragend dragover dragenter dragleave drop",function(e){e.preventDefault(),e.stopPropagation()}).on("dragover dragenter",function(){o.addClass("is-dragover")}).on("dragleave dragend drop",function(){o.removeClass("is-dragover")}).on("drop",function(e){r.getImagesFromEvent(e)}).on("click",function(){i.trigger("click")})}}}angular.module("simpleUtil",[]).controller("simpleImageUploadCtrl",["$scope",simpleImageUploadCtrlFn]).directive("simpleImageUpload",[simpleImageUploadFn]),function(e){e.fn.simpleImageUpload=function(n){var a,r=e.extend({onAfterRead:""},n),t=this,i={},o=function(n){var a=n.originalEvent.target.files||n.originalEvent.dataTransfer.files,r=1,t=null;e.each(a,function(e,n){null!==n.type.match("image.*")&&1===r?(t=n,r+=1):r>1&&console.warn("This widget will only process 1 image every time")}),null!==t&&l(t)},l=function(e){d(e).readAsDataURL(e)},d=function(n){var a=new FileReader;return a.onload=function(n){return function(a){i={source:a.target.result,file:n,name:n.name},e.isFunction(r.onAfterRead)&&r.onAfterRead(i)}}(n),a};return t.getImageFile=function(){return i},t.deleteImageFile=function(){i={},a.val("")},this.each(function(){var n=e(this);n.html('<input type="file" style="display:none;"><div class="simpleImageUpload"></div>'),a=n.find("input");var r=n.find("div");a.on("change",function(e){o(e)}),r.on("drag dragstart dragend dragover dragenter dragleave drop",function(e){e.preventDefault(),e.stopPropagation()}).on("dragover dragenter",function(){r.addClass("is-dragover")}).on("dragleave dragend drop",function(){r.removeClass("is-dragover")}).on("drop",function(e){o(e)}).on("click",function(){a.trigger("click")})})}}(jQuery),angular.module("simpleUtil",[]).controller("simpleImageUploadCtrl",["$scope",simpleImageUploadCtrlFn]).directive("simpleImageUpload",[simpleImageUploadFn]),angular.module("simpleUtil",[]).controller("simpleImageUploadCtrl",["$scope",simpleImageUploadCtrlFn]).directive("simpleImageUpload",[simpleImageUploadFn]),function(e){e.fn.simpleImageUpload=function(n){var a,r=e.extend({onAfterRead:""},n),t=this,i={},o=function(n){var a=n.originalEvent.target.files||n.originalEvent.dataTransfer.files,r=1,t=null;e.each(a,function(e,n){null!==n.type.match("image.*")&&1===r?(t=n,r+=1):r>1&&console.warn("This widget will only process 1 image every time")}),null!==t&&l(t)},l=function(e){d(e).readAsDataURL(e)},d=function(n){var a=new FileReader;return a.onload=function(n){return function(a){i={source:a.target.result,file:n,name:n.name},e.isFunction(r.onAfterRead)&&r.onAfterRead(i)}}(n),a};return t.getImageFile=function(){return i},t.deleteImageFile=function(){i={},a.val("")},this.each(function(){var n=e(this);n.html('<input type="file" style="display:none;"><div class="simpleImageUpload"></div>'),a=n.find("input");var r=n.find("div");a.on("change",function(e){o(e)}),r.on("drag dragstart dragend dragover dragenter dragleave drop",function(e){e.preventDefault(),e.stopPropagation()}).on("dragover dragenter",function(){r.addClass("is-dragover")}).on("dragleave dragend drop",function(){r.removeClass("is-dragover")}).on("drop",function(e){o(e)}).on("click",function(){a.trigger("click")})})}}(jQuery);
+/**
+ * Created by porfirio.chavez on 28/06/17.
+ */
+(function ($) {
+    $.fn.simpleImageUpload = function (options) {
+      var settings = $.extend({
+        onAfterRead: ''
+      }, options)
+      var self = this
+      var _imageFile = {}
+      var _input;
+
+      // Private Methods
+      var getImagesFromEvent = function (event) {
+        var files = event.originalEvent.target.files || event.originalEvent.dataTransfer.files
+        var count = 1
+        var image = null
+        $.each(files, function (idx, file) {
+          if (file.type.match('image.*') !== null && count === 1) {
+            image = file
+            count += 1
+          } else if (count > 1) {
+            console.warn('This widget will only process 1 image every time')
+          }
+        })
+        if(image !== null){
+          displayImage(image)
+        }
+      }
+
+      var displayImage = function (imagen) {
+        var lector = generateReader(imagen)
+        lector.readAsDataURL(imagen)
+      }
+
+      var generateReader = function (img) {
+        var reader = new FileReader()
+        reader.onload = (function (file) {
+          return function (e) {
+            _imageFile = {
+              source: e.target.result,
+              file: file,
+              name: file.name
+            }
+            if ($.isFunction(settings.onAfterRead)) settings.onAfterRead(_imageFile);
+          }
+        })(img)
+
+        return reader
+      }
+
+      // Public Methods
+      self.getImageFile = function () {
+        return _imageFile
+      }
+
+      self.deleteImageFile = function (){
+        _imageFile = {}
+        _input.val('')
+      }
+
+      return this.each(function () {
+        var $element = $(this)
+        $element.html('<input type="file" accept="image/*" style="display:none;"><div class="simpleImageUpload"></div>')
+        _input = $element.find('input')
+        var $div = $element.find('div')
+
+        _input.on('change', function (e) {
+          getImagesFromEvent(e)
+        })
+
+        $div.on('drag dragstart dragend dragover dragenter dragleave drop', function (e) {
+          e.preventDefault()
+          e.stopPropagation()
+        })
+          .on('dragover dragenter', function () {
+            $div.addClass('is-dragover')
+          })
+          .on('dragleave dragend drop', function () {
+            $div.removeClass('is-dragover')
+          })
+          .on('drop', function (e) {
+            getImagesFromEvent(e)
+          })
+          .on('click', function () {
+            _input.trigger('click')
+          })
+      })
+    }
+  }(jQuery)
+)
