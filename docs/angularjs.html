@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="pruebas">
+<head>
+	<meta charset="UTF-8">
+	<title>Simple Image Upload Demo</title>
+  <link rel="stylesheet" href="css/highlight.css">
+	<style>
+		div.simpleImageUpload.is-dragover {
+			background-color: greenyellow;
+			border-color: green;
+		}
+
+		div.simpleImageUpload {
+			background-color: #F8F8F8;
+			border: 2px dashed #B1B2B7;
+			width: 200px;
+			height: 200px;
+			white-space: pre; /* Important for breakLine */
+		}
+
+		div.simpleImageUpload:before {
+			padding: 0 5px 0 0;
+			content: "Drop Image \A or \A Click Here";
+			position: relative;
+			width: 10px;
+			top: 60px;
+			left: 50px;
+		}
+	</style>
+</head>
+<body ng-controller="Main as main">
+<button class="show-css">Show CSS</button>
+<pre id="css" style="display: none">
+  <code>
+    div.simpleImageUpload.is-dragover {
+			background-color: greenyellow;
+			border-color: green;
+		}
+
+		div.simpleImageUpload {
+			background-color: #F8F8F8;
+			border: 2px dashed #B1B2B7;
+			width: 200px;
+			height: 200px;
+			white-space: pre; /* Important for breakLine */
+		}
+
+		div.simpleImageUpload:before {
+			padding: 0 5px 0 0;
+			content: "Drop Image \A or \A Click Here";
+			position: relative;
+			width: 10px;
+			top: 60px;
+			left: 50px;
+		}
+  </code>
+</pre>
+<simple-image-upload
+		image-file="main.archivos"
+		ng-style="{'background-image':'url(' + main.archivos.source + ')'}" style="background-size: cover;">
+</simple-image-upload>
+
+<h3>Image</h3>
+<img ng-src="{{main.archivos.source}}" style="width: 200px; height: 200px">
+
+<hr>
+{{main.archivos}}
+
+<h3>Background Div</h3>
+<div ng-style="{'background-image':'url(' + main.archivos.source + ')'}" style="background-size: cover; width: 200px; height: 200px"></div>
+
+<pre>{{ main.archivos | json }}</pre>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/angular.min.js"></script>
+<script src="js/simpleImageUpload.min.js"></script>
+<script src="app.js"></script>
+<script src="js/highlight.min.js"></script>
+<script>
+  $(document).ready(function() {
+    $('pre code').each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
+
+    $('button.show-css').on('click', function () {
+      var text = $(this).text();
+      $(this).text(text === "Show CSS" ? "Hide CSS" : "Show CSS");
+      $('#css').toggle();
+    })
+  });
+</script>
+</body>
+</html>

@@ -80,6 +80,7 @@
             $div.removeClass('is-dragover')
           })
           .on('drop', function (e) {
+            $element.find("input[type='file']").prop('files', e.originalEvent.target.files || e.originalEvent.dataTransfer.files);
             getImagesFromEvent(e)
           })
           .on('click', function () {
