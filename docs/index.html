@@ -1,50 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="pruebas">
+<html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Simple Image Upload Demo</title>
-	<style>
-		div.simpleImageUpload.is-dragover {
-			background-color: greenyellow;
-			border-color: green;
-		}
-
-		div.simpleImageUpload {
-			background-color: #F8F8F8;
-			border: 2px dashed #B1B2B7;
-			width: 200px;
-			height: 200px;
-			white-space: pre; /* Important for breakLine */
-		}
-
-		div.simpleImageUpload:before {
-			padding: 0 5px 0 0;
-			content: "Drop Image \A or \A Click Here";
-			position: absolute;
-			width: 10px;
-			top: 70px;
-			left: 70px;
-		}
-
-	</style>
+    <meta charset="UTF-8">
+    <title>Simple Image Upload Docs</title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald|Pattaya" rel="stylesheet">
+    <link rel="stylesheet" href="css/main.css">
 </head>
-<body ng-controller="Main as main">
-<simple-image-upload
-		image-file="main.archivos"
-		ng-style="{'background-image':'url(' + main.archivos.source + ')'}" style="background-size: cover;">
-</simple-image-upload>
+<body>
 
-<h3>Image</h3>
-<img ng-src="{{main.archivos.source}}" style="width: 200px; height: 200px">
+<header>
+  <h1>Simple Image Uploader</h1>
+  <div class="version">v1.4</div>
+</header>
 
-<h3>Background Div</h3>
-<div ng-style="{'background-image':'url(' + main.archivos.source + ')'}" style="background-size: cover; width: 200px; height: 200px"></div>
+<h2>Choose a Platform</h2>
+<ul>
+  <li><a href="angularjs.html">AngularJS</a></li>
+  <li>Jquery (widget) -- in progress</li>
+  <li>Angular - coming soon</li>
+</ul>
 
-<pre>{{ main.archivos | json }}</pre>
-
-<script src="js/jquery.min.js"></script>
-<script src="js/angular.min.js"></script>
-<script src="js/simpleImageUpload.min.js"></script>
-<script src="app.js"></script>
 </body>
 </html>

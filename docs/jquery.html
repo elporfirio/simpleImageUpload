@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+  <link rel="stylesheet" href="css/highlight.css">
+</head>
+<body>
+
+<pre>
+  <code class="javascript">
+  $('.image').simpleImageUpload();
+
+    function someLook(){
+      var some = "lotario";
+      return some;
+    }
+</code></pre>
+
+<script src="js/highlight.min.js"></script>
+<script>
+  window.addEventListener('onload', function(){
+    $('pre code').each(function(i, block) {
+      hljs.highlightBlock(block);
+    });
+  })
+</script>
+</body>
+</html>

@@ -9,6 +9,7 @@ module.exports = {
     "node": true
   },
   "globals":{
-    "angular": true
+    "angular": true,
+    "jQuery": true
   }
 };
