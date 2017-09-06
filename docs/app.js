@@ -6,12 +6,5 @@ angular.module('pruebas', ['simpleUtil'])
     'use strict'
 
     var self = this
-    self.archivos = null
-    self.imagenes = []
-
-    self.guardar = function () {
-      if (self.archivos !== null) {
-        self.imagenes = self.archivos
-      }
-    }
+    self.image = {}
   })
