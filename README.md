@@ -109,11 +109,11 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [0.1.4.1] - 2017-09-07
+## [0.1.4] - 2017-09-07
 ### Changes
 - Update documentation and demo page
 
-## [0.1.4] - 2017-09-06
+## [0.1.3] - 2017-09-06
 ### Added
 - jQuery widget
 - compile scripts for development
@@ -140,5 +140,5 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 [Unreleased]: https://github.com/elporfirio/simpleImageUpload
 [0.1.1]: https://github.com/elporfirio/simpleImageUpload/releases/tag/v0.1.1
 [0.1.2]: https://github.com/elporfirio/simpleImageUpload/releases/tag/v0.1.2
+[0.1.3]: https://github.com/elporfirio/simpleImageUpload/releases/tag/v0.1.3
 [0.1.4]: https://github.com/elporfirio/simpleImageUpload/releases/tag/v0.1.4
-[0.1.4.1]: https://github.com/elporfirio/simpleImageUpload/releases/tag/v0.1.4.1
