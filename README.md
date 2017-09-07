@@ -23,7 +23,7 @@ Install via npm
 
 # Usage
 
-_*Important*_: CSS styles are not included, please see [Demo](http://elporfirio.github.io/simpleImageUpload) for examples.
+_*Important*_: CSS styles are not included, please see [Demo](https://elporfirio.github.io/simpleImageUpload/) for examples.
 
 ## Usage on AngularJS
 
