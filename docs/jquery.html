@@ -2,28 +2,174 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Simple Image Upload Demo</title>
   <link rel="stylesheet" href="css/highlight.css">
+  <style>
+    div.simpleImageUpload.is-dragover {
+      background-color: greenyellow;
+      border-color: green;
+    }
+
+    div.simpleImageUpload {
+      background-color: #F8F8F8;
+      border: 2px dashed #B1B2B7;
+      width: 200px;
+      height: 200px;
+      white-space: pre; /* Important for breakLine */
+      cursor: pointer;
+    }
+
+    div.simpleImageUpload:before {
+      padding: 0 5px 0 0;
+      content: "Drop Image \A or \A Click Here";
+      position: relative;
+      width: 10px;
+      top: 60px;
+      left: 50px;
+    }
+
+    span.clear { clear: left; display: block; }
+    pre.demo {min-height: 440px;}
+
+    .button {
+      border-top: 1px solid #96d1f8;
+      background: #65a9d7;
+      background: -webkit-gradient(linear, left top, left bottom, from(#3e779d), to(#65a9d7));
+      background: -webkit-linear-gradient(top, #3e779d, #65a9d7);
+      background: -moz-linear-gradient(top, #3e779d, #65a9d7);
+      background: -ms-linear-gradient(top, #3e779d, #65a9d7);
+      background: -o-linear-gradient(top, #3e779d, #65a9d7);
+      padding: 5px 10px;
+      -webkit-border-radius: 8px;
+      -moz-border-radius: 8px;
+      border-radius: 8px;
+      -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+      -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+      box-shadow: rgba(0,0,0,1) 0 1px 0;
+      text-shadow: rgba(0,0,0,.4) 0 1px 0;
+      color: white;
+      font-size: 14px;
+      font-family: Helvetica, Arial, Sans-Serif;
+      text-decoration: none;
+      vertical-align: middle;
+      cursor: pointer;
+    }
+    .button:hover {
+      border-top-color: #28597a;
+      background: #28597a;
+      color: #ccc;
+    }
+    .button:active {
+      border-top-color: #1b435e;
+      background: #1b435e;
+    }
+  </style>
 </head>
 <body>
+<h2>Simple Image Upload jQuery Widget Demo</h2>
+<!-- jQuery widgetContainer -->
+<div id="imageUpload"></div>
 
-<pre>
-  <code class="javascript">
-  $('.image').simpleImageUpload();
+<br>
+<h4>Image Data</h4>
+<pre id="imageData"></pre>
 
-    function someLook(){
-      var some = "lotario";
-      return some;
-    }
-</code></pre>
+<div class="container" style="height: 300px">
+  <h4>Image Preview</h4>
+  <img id="preview" style="width: 200px; height: 200px">
+</div>
 
+<div class="example-code-area">
+  <a class="button show-css" data-id="css">Show css</a>
+  <a class="button show-html" data-id="html">Show html</a>
+  <a class="button show-app" data-id="app">Show app</a>
+  <pre id="css" class="demo" style="display: none">
+    <strong>CSS</strong>
+  <code>
+div.simpleImageUpload.is-dragover {
+  background-color: greenyellow;
+  border-color: green;
+}
+
+div.simpleImageUpload {
+  background-color: #F8F8F8;
+  border: 2px dashed #B1B2B7;
+  width: 200px;
+  height: 200px;
+  white-space: pre; /* Important for breakLine */
+}
+
+div.simpleImageUpload:before {
+  padding: 0 5px 0 0;
+  content: "Drop Image \A or \A Click Here";
+  position: relative;
+  width: 10px;
+  top: 60px;
+  left: 50px;
+}
+  </code>
+</pre>
+  <pre id="html"  class="demo" style="display: none">
+    <strong>HTML</strong>
+  <code>
+&lt;!-- jQuery widgetContainer --&gt;
+&lt;div id=&quot;imageUpload&quot;&gt;&lt;/div&gt;
+
+&lt;!-- Image Preview --&gt;
+&lt;img id=&quot;preview&quot; style=&quot;width: 200px; height: 200px&quot;&gt;
+  </code>
+</pre>
+
+  <pre id="app" class="demo" style="display: none">
+    <strong>App</strong>
+  <code ng-non-bindable>
+var simpleImageUpload;
+
+$(document).ready(function(){
+  simpleImageUpload = $('#imageUpload').simpleImageUpload({
+    onAfterRead: renderImage
+  });
+});
+
+function renderImage(image){
+  $('#preview').attr('src', image.source);
+}
+  </code>
+</pre>
+</div>
+
+<script src="js/jquery.min.js"></script>
+<script src="js/simpleImageUpload-widget.min.js"></script>
 <script src="js/highlight.min.js"></script>
 <script>
-  window.addEventListener('onload', function(){
+  var simpleImageUpload;
+
+  $(document).ready(function(){
+
     $('pre code').each(function(i, block) {
       hljs.highlightBlock(block);
     });
-  })
+
+    simpleImageUpload = $('#imageUpload').simpleImageUpload({
+      onAfterRead: renderImage
+    });
+
+    var pres = $('pre.demo');
+
+    $('a.button').on('click', function(e){
+      e.preventDefault();
+      var id = $(this).data('id');
+      var element = $('#' + id);
+      pres.hide();
+      element.show();
+      $('html, body').animate({scrollTop: element.offset().top + 100 }, 600);
+    })
+  });
+
+  function renderImage(image){
+    $('#imageData').text(JSON.stringify(image, null, 2));
+    $('#preview').attr('src', image.source);
+  }
 </script>
 </body>
 </html>
